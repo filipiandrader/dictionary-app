@@ -6,6 +6,7 @@ package com.far.dictionaryapp.core
 
 object Constants {
 	
-	const val BASE_URL = ""
+	const val BASE_URL = "https://api.dictionaryapi.dev/"
+	const val DATABASE_NAME = "word_info_db"
 	const val DEFAULT_ERROR = "An unexpected error occured."
 }
