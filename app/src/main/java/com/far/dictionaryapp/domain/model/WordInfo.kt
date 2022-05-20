@@ -9,7 +9,7 @@ import com.far.dictionaryapp.data.local.entity.WordInfoEntity
 data class WordInfo(
 	val license: License,
 	val meanings: List<Meaning>,
-	val origin: String,
+	val origin: String?,
 	val phonetic: String,
 	val phonetics: List<Phonetic>,
 	val sourceUrls: List<String>,

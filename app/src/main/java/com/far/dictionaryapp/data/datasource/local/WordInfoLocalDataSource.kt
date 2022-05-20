@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface WordInfoLocalDataSource {
 	
-	fun insert(infos: List<WordInfo>): Flow<Unit>
-	fun delete(words: List<String>): Flow<Unit>
-	fun getWordInfos(word: String): Flow<List<WordInfo>>
+	suspend fun insert(infos: List<WordInfo>)
+	suspend fun delete(words: List<String>)
+	suspend fun getWordInfos(word: String):List<WordInfo>
 }

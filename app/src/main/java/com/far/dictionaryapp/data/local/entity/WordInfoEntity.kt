@@ -16,7 +16,7 @@ data class WordInfoEntity(
 	@PrimaryKey val id: Int? = null,
 	val license: License,
 	val meanings: List<Meaning>,
-	val origin: String,
+	val origin: String?,
 	val phonetic: String,
 	val phonetics: List<Phonetic>,
 	val sourceUrls: List<String>,

@@ -1,5 +1,6 @@
 package com.far.dictionaryapp.data.remote.dto
 
+import com.far.dictionaryapp.domain.model.License
 import com.far.dictionaryapp.domain.model.Phonetic
 
 /*
@@ -7,15 +8,15 @@ import com.far.dictionaryapp.domain.model.Phonetic
  */
 
 data class PhoneticDto(
-	val audio: String,
-	val license: LicenseDto,
-	val sourceUrl: String,
-	val text: String
+	val audio: String? = null,
+	val license: LicenseDto? = null,
+	val sourceUrl: String? = null,
+	val text: String? = null
 ) {
 	fun toPhonetic() = Phonetic(
-		audio = audio,
-		license = license.toLicense(),
-		sourceUrl = sourceUrl,
-		text = text
+		audio = audio.orEmpty(),
+		license = license?.toLicense() ?: License("", ""),
+		sourceUrl = sourceUrl.orEmpty(),
+		text = text.orEmpty()
 	)
 }

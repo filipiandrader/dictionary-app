@@ -7,15 +7,15 @@ import com.far.dictionaryapp.domain.model.Definition
  */
 
 data class DefinitionDto(
-	val antonyms: List<String>,
-	val definition: String,
-	val example: String?,
-	val synonyms: List<String>
+	val antonyms: List<String>? = null,
+	val definition: String? = null,
+	val example: String? = null,
+	val synonyms: List<String>? = null
 ) {
 	fun toDefinition() = Definition(
-		antonyms = antonyms,
-		definition = definition,
+		antonyms = antonyms.orEmpty(),
+		definition = definition.orEmpty(),
 		example = example,
-		synonyms = synonyms
+		synonyms = synonyms.orEmpty()
 	)
 }

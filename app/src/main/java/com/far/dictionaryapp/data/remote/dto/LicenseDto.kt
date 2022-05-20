@@ -7,11 +7,11 @@ import com.far.dictionaryapp.domain.model.License
  */
 
 data class LicenseDto(
-	val name: String,
-	val url: String
+	val name: String? = null,
+	val url: String? = null
 ) {
 	fun toLicense() = License(
-		name = name,
-		url = url
+		name = name.orEmpty(),
+		url = url.orEmpty()
 	)
 }

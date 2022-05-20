@@ -1,5 +1,6 @@
 package com.far.dictionaryapp.data.remote.dto
 
+import com.far.dictionaryapp.domain.model.License
 import com.far.dictionaryapp.domain.model.WordInfo
 
 /*
@@ -7,21 +8,21 @@ import com.far.dictionaryapp.domain.model.WordInfo
  */
 
 data class WordInfoDto(
-	val license: LicenseDto,
-	val meanings: List<MeaningDto>,
-	val origin: String,
-	val phonetic: String,
-	val phonetics: List<PhoneticDto>,
-	val sourceUrls: List<String>,
-	val word: String
+	val license: LicenseDto? = null,
+	val meanings: List<MeaningDto>? = null,
+	val origin: String? = null,
+	val phonetic: String? = null,
+	val phonetics: List<PhoneticDto>? = null,
+	val sourceUrls: List<String>? = null,
+	val word: String? = null
 ) {
 	fun toWordInfo() = WordInfo(
-		license = license.toLicense(),
-		meanings = meanings.map { it.toMeaning() },
+		license = license?.toLicense() ?: License("",""),
+		meanings = meanings?.map { it.toMeaning() }.orEmpty(),
 		origin = origin,
-		phonetic = phonetic,
-		phonetics = phonetics.map { it.toPhonetic() },
-		sourceUrls = sourceUrls,
-		word = word
+		phonetic = phonetic.orEmpty(),
+		phonetics = phonetics?.map { it.toPhonetic() }.orEmpty(),
+		sourceUrls = sourceUrls.orEmpty(),
+		word = word.orEmpty()
 	)
 }
